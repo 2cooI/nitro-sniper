@@ -5,9 +5,7 @@ const token = require('./token.json')
 
 
 client.on('ready', () => {
-  console.log(`Kazion Nitro Sniper`);
-    console.log(`has been enabled`);
-  console.log(`for user ${client.user.tag}`);
+    console.log(`Nitro Sniper Enabled...`);
 });
 
 client.on('message', message => {
@@ -18,18 +16,19 @@ client.on('message', message => {
         var NitroUrl = Nitro.exec(message.content);
         var NitroCode = NitroUrl[0].split('/')[1];
 
-        console.log(`Nitro found in ${message.guild.name}`);
+        console.log(`Nitro Gift found in: ${message.guild.name}`);
         
         axios({
             method: 'POST',
             url: `https://discordapp.com/api/v6/entitlements/gift-codes/${NitroCode}/redeem`, 
             headers: 
             {
-            'Authorization': client.account_token 
+            'Authorization': token 
             }
         }).then(
-        ).catch(ex => console.log(`Error | Failed to claim Nitro`))
+            () => console.log(`Successfully redeemed in: ${message.guild.name}`)
+        ).catch(ex => console.log(`Failed to claim Nitro Gift: ${message.guild.name}`))
     }
 })
 
-client.login(token.token)
+client.login(token)
