@@ -2,7 +2,7 @@
 Basic nitro sniper in NodeJS
 ---
 ## Setup:
-- Head over to `config.json` and put your token there!
+- Head over to `token.json` and put your token there!
 ---
 
 - [Click Here](https://repl.it/github/kazion1337/nitro-sniper) to run it in repl.it
